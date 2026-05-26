@@ -1,0 +1,13 @@
+TwoLanes Plakat 299€ — Öffentlicher Link
+==========================================
+
+Plakat-URL (GitHub Pages):
+https://endritmrn-cmd.github.io/twolanes-plakat-299/
+
+GitHub Repository:
+https://github.com/EndritMrn-cmd/twolanes-plakat-299
+
+Hinweis: GitHub Pages braucht 1-2 Minuten nach dem ersten Deploy
+bis der Link aktiv ist. Danach ist das Plakat dauerhaft erreichbar.
+
+Stand: 27.05.2026
