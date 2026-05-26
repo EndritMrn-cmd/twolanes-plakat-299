@@ -379,25 +379,34 @@
     flex-shrink: 0;
   }
 
-  .qr-placeholder {
-    width: 80px;
-    height: 80px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px;
+  .qr-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .qr-wrap span {
+    font-size: 8px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #qr-canvas {
+    padding: 6px;
+    background: #fff;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 4px;
   }
 
-  .qr-placeholder span {
-    font-size: 8px;
-    color: rgba(255,255,255,0.3);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  #qr-canvas img,
+  #qr-canvas canvas {
+    display: block;
+    border-radius: 4px;
   }
 
   /* === DECORATIVE SVG === */
@@ -590,32 +599,26 @@
         </div>
       </div>
 
-      <!-- QR Code placeholder (SVG) -->
-      <div class="qr-placeholder">
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          <!-- QR decorative placeholder -->
-          <rect x="4" y="4" width="18" height="18" rx="2" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
-          <rect x="8" y="8" width="10" height="10" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="30" y="4" width="18" height="18" rx="2" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
-          <rect x="34" y="8" width="10" height="10" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="4" y="30" width="18" height="18" rx="2" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
-          <rect x="8" y="34" width="10" height="10" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <!-- data cells -->
-          <rect x="30" y="30" width="5" height="5" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="37" y="30" width="5" height="5" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="44" y="30" width="4" height="4" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="30" y="37" width="5" height="5" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="37" y="37" width="5" height="5" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="44" y="37" width="4" height="4" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="30" y="44" width="5" height="4" rx="1" fill="rgba(249,115,22,0.4)"/>
-          <rect x="44" y="44" width="4" height="4" rx="1" fill="rgba(249,115,22,0.4)"/>
-        </svg>
-        <span>QR-Code</span>
+      <!-- QR Code (echt) -->
+      <div class="qr-wrap">
+        <div id="qr-canvas"></div>
+        <span>twolanes.de/de</span>
       </div>
     </div>
 
   </div><!-- /content -->
 </div><!-- /poster -->
 
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+  new QRCode(document.getElementById('qr-canvas'), {
+    text: 'https://www.twolanes.de/de',
+    width: 76,
+    height: 76,
+    colorDark: '#0a0a0a',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
 </body>
 </html>
